@@ -38,6 +38,7 @@ root_agent = LlmAgent(
         - Score should reflect realistic alignment (consider experience level, skills, certifications)
         - Advice should be specific and actionable - not generic
         - Be fair but honest in your assessment
+        - For the advice, focus on the most impactful improvements that would increase the candidate's chances for passing an ATS (Applicant Tracking System), be concise.
 
         IMPORTANT: Your response MUST be valid JSON matching this structure:
         {
