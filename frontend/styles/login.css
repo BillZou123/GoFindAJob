@@ -135,11 +135,13 @@ body {
 .error-message {
     background: #ff6b6b;
     color: white;
+    display: none;
 }
 
 .success-message {
     background: #51cf66;
     color: white;
+    display: none;
 }
 
 @media (max-width: 480px) {
