@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFindAJob - Login</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h1>GoFindAJob</h1>
+            <p class="subtitle">Your Resume Analysis Companion</p>
+
+            <!-- Tab Buttons -->
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="switchTab('signin')">Sign In</button>
+                <button class="tab-button" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+
+            <!-- Sign In Tab -->
+            <div id="signin" class="tab-content active">
+                <form onsubmit="handleSignIn(event)">
+                    <div class="form-group">
+                        <label for="signin-username">Username</label>
+                        <input type="text" id="signin-username" placeholder="Enter your username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signin-password">Password</label>
+                        <input type="password" id="signin-password" placeholder="Enter your password" required>
+                    </div>
+
+                    <button type="submit" class="auth-btn" id="signin-btn">Sign In</button>
+                    <div id="signin-loading" class="loading hidden">Loading...</div>
+                </form>
+
+                <div id="signin-error" class="error-message"></div>
+                <div id="signin-success" class="success-message"></div>
+            </div>
+
+            <!-- Sign Up Tab -->
+            <div id="signup" class="tab-content">
+                <form onsubmit="handleSignUp(event)">
+                    <div class="form-group">
+                        <label for="signup-username">Username</label>
+                        <input type="text" id="signup-username" placeholder="Choose a username" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-email">Email</label>
+                        <input type="email" id="signup-email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-password">Password</label>
+                        <input type="password" id="signup-password" placeholder="Create a password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password</label>
+                        <input type="password" id="signup-confirm-password" placeholder="Confirm your password" required>
+                    </div>
+
+                    <button type="submit" class="auth-btn" id="signup-btn">Sign Up</button>
+                    <div id="signup-loading" class="loading hidden">Loading...</div>
+                </form>
+
+                <div id="signup-error" class="error-message"></div>
+                <div id="signup-success" class="success-message"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/api.js"></script>
+    <script src="scripts/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFindAJob - Resume Analyzer</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/analyze-resume.css">
+</head>
+<body>
+    <div class="welcome-container">
+        <header class="welcome-header">
+            <h1>GoFindAJob</h1>
+            <div class="header-buttons">
+                <button class="home-btn" onclick="navigateHome()">Home</button>
+                <button class="logout-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </header>
+
+        <main class="welcome-main">
+            <div class="greeting">
+                <h2>Welcome, <span id="username">User</span>!</h2>
+                <p>Analyze your resume against job postings to improve your match score</p>
+            </div>
+
+            <!-- Analyze Resume Section -->
+            <div class="analyze-section">
+                <div class="analyze-card">
+                    <h3>📄 Analyze My Resume</h3>
+                    <p>Upload your resume and paste a job posting to get actionable insights</p>
+                    
+                    <form id="analyzeForm" class="analyze-form">
+                        <!-- Resume Upload -->
+                        <div class="form-group">
+                            <label for="resumeFile">Upload Resume (PDF)</label>
+                            <input type="file" id="resumeFile" name="resume" accept=".pdf" required>
+                            <small>Max 10MB, PDF format only</small>
+                        </div>
+
+                        <!-- Job Posting -->
+                        <div class="form-group">
+                            <label for="jobPost">Job Posting</label>
+                            <textarea id="jobPost" name="job_post" rows="6" placeholder="Paste the job posting here..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="analyze-btn">Analyze Resume</button>
+                    </form>
+
+                    <!-- Loading Spinner -->
+                    <div id="loadingSpinner" class="spinner hidden"></div>
+                </div>
+            </div>
+
+            <!-- Current Analysis Results Section -->
+            <div id="resultsSection" class="results-section hidden">
+                <h3>Analysis Results</h3>
+                <div id="resultsList" class="results-list"></div>
+            </div>
+
+            <!-- Error Messages -->
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div id="successMessage" class="success-message hidden"></div>
+        </main>
+    </div>
+
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/analyze-resume.js"></script>
+</body>
+</html>

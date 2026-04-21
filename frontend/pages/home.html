@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFindAJob - Home</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/home.css">
+</head>
+<body>
+    <div class="home-container">
+        <header class="home-header">
+            <h1>GoFindAJob</h1>
+            <button class="logout-btn" onclick="handleLogout()">Logout</button>
+        </header>
+
+        <main class="home-main">
+            <div class="greeting">
+                <h2>Welcome, <span id="username">User</span>!</h2>
+                <p>Choose an option below to get started</p>
+            </div>
+
+            <!-- Navigation Options -->
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-icon">📋</div>
+                    <h3>Applied Jobs</h3>
+                    <p>Track and manage all your job applications</p>
+                    <button class="option-btn" onclick="navigateTo('applied-jobs.html')">View Applied Jobs</button>
+                </div>
+
+                <div class="option-card">
+                    <div class="option-icon">📄</div>
+                    <h3>Analyze My Resume</h3>
+                    <p>Get your resume analyzed against job postings</p>
+                    <button class="option-btn" onclick="navigateTo('analyze-resume.html')">Analyze Resume</button>
+                </div>
+
+                <div class="option-card">
+                    <div class="option-icon">⚡</div>
+                    <h3>AutoFill Application</h3>
+                    <p>Automatically fill out job application forms</p>
+                    <button class="option-btn" onclick="navigateTo('autofill.html')">AutoFill Application</button>
+                </div>
+
+                <div class="option-card">
+                    <div class="option-icon">❓</div>
+                    <h3>Job Question Answering</h3>
+                    <p>Get help answering job application questions</p>
+                    <button class="option-btn" onclick="navigateTo('questions.html')">Answer Questions</button>
+                </div>
+            </div>
+
+            <!-- Error Messages -->
+            <div id="errorMessage" class="error-message hidden"></div>
+        </main>
+    </div>
+
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/home.js"></script>
+</body>
+</html>
