@@ -42,7 +42,7 @@ GoFindAJob is a full-stack job search assistant that helps users:
 
 ---
 
-## Tech Stack and Design Decisions (Concise)
+## Tech Stack and Design Decisions 
 
 - **Backend: Flask + SQLAlchemy + SQLite**
 	- Chosen for fast API development and lightweight local persistence.
