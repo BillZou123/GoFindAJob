@@ -6,7 +6,7 @@ async function loadWelcomePage() {
             setupFormHandler();
         } else {
             // Not authenticated, redirect to login
-            window.location.href = '../index.html';
+            window.location.href = '/';
         }
     } catch (error) {
         showError('Connection error. Please refresh the page or log in again.');
@@ -97,15 +97,15 @@ function showSuccess(message) {
 
 async function handleLogout() {
     try {
-        await apiCall('/logout', 'POST');
-        window.location.href = '../index.html';
+        await apiCall('/api/logout', 'POST');
+        window.location.href = '/pages/home.html';
     } catch (error) {
         showError('Logout failed');
     }
 }
 
 function navigateHome() {
-    window.location.href = 'home.html';
+    window.location.href = '/pages/home.html';
 }
 
 // Load welcome page on page load

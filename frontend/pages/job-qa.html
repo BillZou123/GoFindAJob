@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GoFindAJob - Resume Analyzer</title>
+    <title>GoFindAJob - Job Q&A</title>
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/analyze-resume.css">
+    <link rel="stylesheet" href="/styles/job-qa.css">
 </head>
 <body>
     <div class="welcome-container">
@@ -20,16 +20,16 @@
         <main class="welcome-main">
             <div class="greeting">
                 <h2>Welcome, <span id="username">User</span>!</h2>
-                <p>Analyze your resume against job postings to improve your match score</p>
+                <p>Answer company questions about your experience based on your resume</p>
             </div>
 
-            <!-- Analyze Resume Section -->
-            <div class="analyze-section">
-                <div class="analyze-card">
-                    <h3>📄 Analyze My Resume</h3>
-                    <p>Upload your resume and paste a job posting to get actionable insights</p>
+            <!-- Job Q&A Section -->
+            <div class="qa-section">
+                <div class="qa-card">
+                    <h3>💬 Answer Company Questions</h3>
+                    <p>Provide a question the company asked in their job application, and get a tailored answer based on your resume and the job posting</p>
                     
-                    <form id="analyzeForm" class="analyze-form">
+                    <form id="qaForm" class="qa-form">
                         <!-- Resume Upload -->
                         <div class="form-group">
                             <label for="resumeFile">Upload Resume (PDF)</label>
@@ -40,10 +40,17 @@
                         <!-- Job Posting -->
                         <div class="form-group">
                             <label for="jobPost">Job Posting</label>
-                            <textarea id="jobPost" name="job_post" rows="6" placeholder="Paste the job posting here..." required></textarea>
+                            <textarea id="jobPost" name="job_post" rows="5" placeholder="Paste the job posting here..." required></textarea>
                         </div>
 
-                        <button type="submit" class="analyze-btn">Analyze Resume</button>
+                        <!-- Company Question -->
+                        <div class="form-group">
+                            <label for="question">Company's Question</label>
+                            <textarea id="question" name="question" rows="3" placeholder="Paste the company's question here (e.g., 'What is your greatest project and why?' or 'Tell us about a time you overcame a challenge')" required></textarea>
+                            <small>The question the company is asking in their application</small>
+                        </div>
+
+                        <button type="submit" class="qa-btn">Generate Answer</button>
                     </form>
 
                     <!-- Loading Spinner -->
@@ -51,9 +58,9 @@
                 </div>
             </div>
 
-            <!-- Current Analysis Results Section -->
+            <!-- Current Q&A Results Section -->
             <div id="resultsSection" class="results-section hidden">
-                <h3>Analysis Results</h3>
+                <h3>Last Generated Answer</h3>
                 <div id="resultsList" class="results-list"></div>
             </div>
 
@@ -64,6 +71,6 @@
     </div>
 
     <script src="/scripts/api.js"></script>
-    <script src="/scripts/analyze-resume.js"></script>
+    <script src="/scripts/job-qa.js"></script>
 </body>
 </html>

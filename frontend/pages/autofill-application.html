@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFindAJob - Auto Fill Application</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/autofill-application.css">
+</head>
+<body>
+    <div class="autofill-container">
+        <header class="autofill-header">
+            <div class="header-left">
+                <h1>GoFindAJob</h1>
+            </div>
+            <div class="header-right">
+                <button class="nav-btn home-btn" onclick="navigateTo('home.html')">← Back to Home</button>
+                <button class="logout-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </header>
+
+        <main class="autofill-main">
+            <div class="greeting">
+                <h2>Welcome, <span id="username">User</span>!</h2>
+                <p>Auto-fill LinkedIn Easy Apply forms with AI assistance</p>
+            </div>
+
+            <!-- Auto Fill Application Section -->
+            <div class="autofill-section">
+                <div class="autofill-card">
+                    <div class="card-header">
+                        <h3>🤖 Auto-Fill Easy Apply</h3>
+                        <p>Provide a job link and your resume, and we'll auto-fill the application form for you</p>
+                    </div>
+                    
+                    <form id="autofillForm" class="autofill-form">
+                        <!-- Job Link -->
+                        <div class="form-group">
+                            <label for="jobLink">LinkedIn Job Link</label>
+                            <input 
+                                type="url" 
+                                id="jobLink" 
+                                name="job_link" 
+                                placeholder="https://www.linkedin.com/jobs/view/..." 
+                                value="https://www.linkedin.com/jobs/view/4398495763/"
+                                required
+                            >
+                            <small>Paste the LinkedIn job URL here</small>
+                        </div>
+
+                        <!-- Resume Upload -->
+                        <div class="form-group">
+                            <label for="resumeFile">Upload Resume (PDF)</label>
+                            <input type="file" id="resumeFile" name="resume" accept=".pdf" required>
+                            <small>Max 10MB, PDF format only</small>
+                        </div>
+
+                        <!-- User Info (Optional) -->
+                        <div class="form-group">
+                            <label for="firstName">First Name (Optional)</label>
+                            <input type="text" id="firstName" name="first_name" placeholder="Bill" value="Bill">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last Name (Optional)</label>
+                            <input type="text" id="lastName" name="last_name" placeholder="Zou" value="Zou">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email (Optional)</label>
+                            <input type="email" id="email" name="email" placeholder="bill.zou@example.com" value="bill.zou@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number (Optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="6135551234" value="(613) 555-1234">
+                        </div>
+
+                        <button type="submit" class="autofill-btn">Start Auto-Fill</button>
+                    </form>
+
+                    <!-- Status Messages -->
+                    <div id="successMessage" class="message success hidden">
+                        <span class="icon">✓</span>
+                        <span id="successText"></span>
+                    </div>
+
+                    <div id="errorMessage" class="message error hidden">
+                        <span class="icon">✗</span>
+                        <span id="errorText"></span>
+                    </div>
+
+                    <!-- Loading Spinner -->
+                    <div id="loadingSpinner" class="spinner hidden"></div>
+
+                    <!-- Progress Info -->
+                    <div id="progressInfo" class="progress-info hidden">
+                        <h4>Application Status</h4>
+                        <p id="progressText"></p>
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/scripts/api.js"></script>
+    <script src="/scripts/autofill-application.js"></script>
+</body>
+</html>

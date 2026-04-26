@@ -5,7 +5,7 @@ async function loadHomePage() {
             document.getElementById('username').textContent = user.username;
         } else {
             // Not authenticated, redirect to login
-            window.location.href = '../index.html';
+            window.location.href = '/';
         }
     } catch (error) {
         showError('Connection error. Please refresh the page or log in again.');
@@ -13,7 +13,7 @@ async function loadHomePage() {
 }
 
 function navigateTo(page) {
-    window.location.href = page;
+    window.location.href = '/pages/' + page;
 }
 
 function showError(message) {
@@ -25,8 +25,8 @@ function showError(message) {
 
 async function handleLogout() {
     try {
-        await apiCall('/logout', 'POST');
-        window.location.href = '../index.html';
+        await apiCall('/api/logout', 'POST');
+        window.location.href = '/';
     } catch (error) {
         showError('Logout failed');
     }

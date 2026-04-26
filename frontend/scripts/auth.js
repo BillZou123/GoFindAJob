@@ -67,7 +67,7 @@ async function handleSignIn(event) {
         if (response.ok) {
             showSuccess(`Welcome, ${data.user.username}!`, 'signin');
             setTimeout(() => {
-                window.location.href = 'pages/home.html';
+                window.location.href = '/pages/home.html';
             }, 1500);
         } else {
             // Show specific error from backend
@@ -136,7 +136,7 @@ window.addEventListener('load', () => {
     // Check if user is already logged in
     getCurrentUser().then(user => {
         if (user) {
-            window.location.href = 'pages/home.html';
+            window.location.href = '/pages/home.html';
         }
     });
 });

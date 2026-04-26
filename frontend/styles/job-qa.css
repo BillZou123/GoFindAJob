@@ -1,0 +1,302 @@
+/* Job Q&A Page Styles */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.welcome-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.welcome-header {
+    background: white;
+    border-radius: 10px;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-header h1 {
+    color: #667eea;
+    font-size: 28px;
+    margin: 0;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.home-btn, .logout-btn {
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.home-btn {
+    background: #667eea;
+    color: white;
+}
+
+.home-btn:hover {
+    background: #5568d3;
+}
+
+.logout-btn {
+    background: #ff6b6b;
+    color: white;
+}
+
+.logout-btn:hover {
+    background: #ff5252;
+}
+
+.welcome-main {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.greeting {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.greeting h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.greeting p {
+    color: #666;
+    font-size: 16px;
+}
+
+.qa-section {
+    margin-bottom: 30px;
+}
+
+.qa-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid #e9ecef;
+}
+
+.qa-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.qa-card p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.qa-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+.form-group small {
+    color: #999;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.qa-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.qa-btn:hover {
+    transform: translateY(-2px);
+}
+
+.qa-btn:active {
+    transform: translateY(0);
+}
+
+.spinner {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(102, 126, 234, 0.1);
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.results-section {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 2px solid #e9ecef;
+}
+
+.results-section h3 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.qa-result-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.result-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.qa-date {
+    color: #999;
+    font-size: 14px;
+}
+
+.company-question {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.company-question strong {
+    color: #856404;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.company-question p {
+    margin: 0;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+.generated-answer {
+    background: #d1ecf1;
+    border-left: 4px solid #17a2b8;
+    padding: 12px;
+    border-radius: 4px;
+    color: #333;
+}
+
+.generated-answer strong {
+    color: #0c5460;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.generated-answer p {
+    margin: 0;
+    line-height: 1.6;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.error-message {
+    background: #ffe0e0;
+    color: #c41e3a;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ff6b6b;
+}
+
+.success-message {
+    background: #e7f5ff;
+    color: #667eea;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #667eea;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .welcome-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .header-buttons {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .home-btn, .logout-btn {
+        flex: 1;
+    }
+
+    .welcome-main {
+        padding: 20px;
+    }
+}

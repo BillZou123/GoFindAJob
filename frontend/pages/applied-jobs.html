@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoFindAJob - Applied Jobs</title>
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/applied-jobs.css">
+</head>
+<body>
+    <div class="jobs-container">
+        <header class="jobs-header">
+            <h1>GoFindAJob</h1>
+            <div class="header-buttons">
+                <button class="home-btn" onclick="navigateHome()">Home</button>
+                <button class="logout-btn" onclick="handleLogout()">Logout</button>
+            </div>
+        </header>
+
+        <main class="jobs-main">
+            <div class="greeting">
+                <h2>Welcome, <span id="username">User</span>!</h2>
+                <p>Track your job applications</p>
+            </div>
+
+            <!-- Add New Job Section -->
+            <div class="add-job-section">
+                <button class="add-job-btn" onclick="toggleAddJobForm()">+ Add New Application</button>
+                
+                <div id="addJobForm" class="add-job-form hidden">
+                    <h3>Add New Job Application</h3>
+                    <form id="jobForm">
+                        <div class="form-group">
+                            <label for="jobTitle">Job Title</label>
+                            <input type="text" id="jobTitle" name="job_title" placeholder="e.g., Senior Frontend Developer" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" placeholder="e.g., Google" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" name="location" placeholder="e.g., San Francisco, CA" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="jobPostLink">Job Post Link</label>
+                            <input type="url" id="jobPostLink" name="job_post_link" placeholder="https://..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="status">Application Status</label>
+                            <select id="status" name="status">
+                                <option value="Applied">Applied</option>
+                                <option value="Under Review">Under Review</option>
+                                <option value="Interview Scheduled">Interview Scheduled</option>
+                                <option value="Interviewed">Interviewed</option>
+                                <option value="On-site Interview">On-site Interview</option>
+                                <option value="Offer Received">Offer Received</option>
+                                <option value="Rejected">Rejected</option>
+                                <option value="Withdrawn">Withdrawn</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Notes</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Any additional notes..."></textarea>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="submit" class="submit-btn">Add Job</button>
+                            <button type="button" class="cancel-btn" onclick="toggleAddJobForm()">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Edit Job Section -->
+            <div id="editJobForm" class="add-job-form hidden">
+                <h3>Edit Job Application</h3>
+                <form id="editForm" onsubmit="submitEditForm(event)">
+                    <input type="hidden" id="editJobId">
+                    
+                    <div class="form-group">
+                        <label for="editJobTitle">Job Title</label>
+                        <input type="text" id="editJobTitle" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editCompany">Company</label>
+                        <input type="text" id="editCompany" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editLocation">Location</label>
+                        <input type="text" id="editLocation" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editJobPostLink">Job Post Link</label>
+                        <input type="url" id="editJobPostLink" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editStatus">Application Status</label>
+                        <select id="editStatus">
+                            <option value="Applied">Applied</option>
+                            <option value="Under Review">Under Review</option>
+                            <option value="Interview Scheduled">Interview Scheduled</option>
+                            <option value="Interviewed">Interviewed</option>
+                            <option value="On-site Interview">On-site Interview</option>
+                            <option value="Offer Received">Offer Received</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Withdrawn">Withdrawn</option>
+                        </select>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn">Update Job</button>
+                        <button type="button" class="cancel-btn" onclick="closeEditForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Jobs List Section -->
+            <div class="jobs-list-section">
+                <h3>Your Applications (<span id="jobCount">0</span>)</h3>
+                <div id="jobsList" class="jobs-list">
+                    <p class="no-jobs">No applications yet. Add one to get started!</p>
+                </div>
+                <div id="paginationControls"></div>
+            </div>
+
+            <!-- Error Messages -->
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div id="successMessage" class="success-message hidden"></div>
+        </main>
+    </div>
+
+    <script src="/scripts/api.js"></script>
+    <script src="/scripts/applied-jobs.js"></script>
+</body>
+</html>
