@@ -243,7 +243,7 @@ function navigateHome() {
 
 async function handleLogout() {
     try {
-        await fetch('/api/logout', { method: 'POST' });
+        await apiCall('/logout', 'POST');
         sessionStorage.clear();
         window.location.href = '/';
     } catch (error) {

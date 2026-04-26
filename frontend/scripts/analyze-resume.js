@@ -97,7 +97,7 @@ function showSuccess(message) {
 
 async function handleLogout() {
     try {
-        await apiCall('/api/logout', 'POST');
+        await apiCall('/logout', 'POST');
         window.location.href = '/pages/home.html';
     } catch (error) {
         showError('Logout failed');

@@ -25,7 +25,7 @@ function showError(message) {
 
 async function handleLogout() {
     try {
-        await apiCall('/api/logout', 'POST');
+        await apiCall('/logout', 'POST');
         window.location.href = '/';
     } catch (error) {
         showError('Logout failed');

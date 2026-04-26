@@ -3,6 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv(Path(__file__).parent.parent / '.env')
 
 # Get the project root directory
 ROOT_DIR = Path(__file__).parent.parent

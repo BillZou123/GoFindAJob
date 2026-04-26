@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5001/api';
+const API_URL = 'http://localhost:5001';
 
 async function apiCall(endpoint, method = 'GET', body = null) {
     const options = {
@@ -13,7 +13,7 @@ async function apiCall(endpoint, method = 'GET', body = null) {
         options.body = JSON.stringify(body);
     }
 
-    const response = await fetch(`${API_URL}${endpoint}`, options);
+    const response = await fetch(`${API_URL}/api${endpoint}`, options);
     const data = await response.json();
 
     return { response, data };
